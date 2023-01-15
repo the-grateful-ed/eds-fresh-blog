@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Comments from "./comments";
 
 export const SingleArticle = ({ author, image, category, title, children }) => {
   return (
@@ -23,12 +24,7 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
         <hr />
         <br />
         <div className="flex items-center">
-          <Image
-            src={author.image}
-            width={50}
-            height={50}
-            alt="blog"
-          />
+          <Image src={author.image} width={50} height={50} alt="blog" />
 
           <div>
             <strong>{author.name}</strong>
@@ -36,10 +32,9 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
             <span>Technical advisor</span>
           </div>
         </div>
-        <article className="prose-md prose prose-blue mx-auto py-24 text-gray-500 lg:prose-lg">
-          {children}
-        </article>
+        <article className="prose-md prose prose-blue mx-auto py-24 text-gray-500 lg:prose-lg">{children}</article>
       </div>
+      <Comments />
     </div>
   );
 };
