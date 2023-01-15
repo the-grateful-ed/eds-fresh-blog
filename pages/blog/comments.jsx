@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import useScript from "../lib/use-script";
+import useScript from "../../lib/use-script";
 
 const Comments = () => {
   const comment = useRef(null);
@@ -14,7 +14,7 @@ const Comments = () => {
   });
 
   console.log(status);
-  return <div className="w-full">{<div ref={comment}></div>}</div>;
+  return <div className="mx-auto w-full max-w-lg">{<div ref={comment}></div>}</div>;
 };
 
 export default Comments;

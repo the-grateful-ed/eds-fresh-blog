@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Comments from "./comments";
+import Comments from "../../pages/blog/comments";
 
 export const SingleArticle = ({ author, image, category, title, children }) => {
   return (
