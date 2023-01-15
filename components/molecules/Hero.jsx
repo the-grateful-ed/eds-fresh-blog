@@ -59,7 +59,7 @@ const Hero = () => {
 
                 <a
                   href="http://www.github.com/the-grateful-ed"
-                  https:target="_blank" //flowbite.com/
+                  https:target="_blank"
                   className="hover:white hover:white text-2xl text-gray-50 transition duration-100"
                 >
                   <BsGithub />
