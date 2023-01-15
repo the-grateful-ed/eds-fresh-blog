@@ -12,43 +12,6 @@ export default function ArticleCard({
   readingTime,
 }) {
   return (
-    // <div className="w-full">
-    //   <Card>
-    // <CardImageWraper>
-    //   <img
-    //     src={image}
-    //     alt="image"
-    //     width={1200}
-    //     height={600}
-    //     className="h-full w-full"
-    //   />
-    // </CardImageWraper>
-
-    //     <CardBody>
-    // <CardCategory>{category}</CardCategory>
-    //       <CardTitle>{title}</CardTitle>
-    // <StatsWrapper>
-    //   <CgReadme />
-    //   <CardStats>{readingTime}</CardStats>
-    //   <RxDotFilled className="text-OuterSpace-700 inline-flex items-center text-xl" />
-    //   <CgCalendarDates />
-    //   <CardStats>{dateTime}</CardStats>
-    // </StatsWrapper>
-    //       <CardText>{description}</CardText>
-    // <CardLinkWraper>
-    //   <CardLink>
-    //     <Link
-    //       className="inline-flex items-center px-1 text-xl"
-    //       href={`/blog/${slug}`}
-    //     >
-    //       <span className="px-1">Read More</span>
-    //       <FiArrowRight />
-    //     </Link>
-    //   </CardLink>
-    // </CardLinkWraper>
-    //     </CardBody>
-    //   </Card>
-    // </div>
 
     <div className="flex flex-col rounded-xl bg-gray-50">
       <CardImageWraper>
