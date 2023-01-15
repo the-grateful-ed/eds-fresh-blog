@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
+
+import useScript from "../lib/use-script";
 
 const Comments = () => {
-  return (
-    <div>
-      <script
-        src="https://utteranc.es/client.js"
-        repo="the-grateful-ed/eds-fresh-blog"
-        issue-term="pathname"
-        theme="github-light"
-        crossOrigin="anonymous"
-        async
-      />
-    </div>
-  );
+  const comment = useRef(null);
+
+  const status = useScript({
+    url: "https://utteranc.es/client.js",
+    theme: "github-dark",
+    issueTerm: "url",
+    repo: "the-grateful-ed/eds-fresh-blog",
+    ref: comment,
+  });
+
+  console.log(status);
+  return <div className="w-full">{<div ref={comment}></div>}</div>;
 };
 
 export default Comments;
