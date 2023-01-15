@@ -42,7 +42,7 @@ const Hero = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="http://www.twitter.com/edndacomputer"
                   target="_blank"
                   className=" hover:white hover:white text-2xl text-gray-50 transition duration-100"
                 >
@@ -58,8 +58,8 @@ const Hero = () => {
                 </a>
 
                 <a
-                  href="#"
-                  target="_blank"
+                  href="http://www.github.com/the-grateful-ed"
+                  https:target="_blank" //flowbite.com/
                   className="hover:white hover:white text-2xl text-gray-50 transition duration-100"
                 >
                   <BsGithub />
