@@ -14,14 +14,7 @@ const SinglePost = ({ article }) => {
       <SingleArticle image={article.image} title={article.title} category={article.category} author={article.author}>
         <MDXContent />
       </SingleArticle>
-      <script
-        src="https://utteranc.es/client.js"
-        repo="the-grateful-ed/eds-fresh-blog"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async
-      ></script>
+      <Comments />
     </>
   );
 };
