@@ -23,7 +23,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".contentlayer/generated"
-, "contentlayer.config.js", "pages/index.jsx", "pages/contact/index.jsx", "pages/_app.jsx"  ],
+    ".contentlayer/generated",
+    "contentlayer.config.js",
+    "pages/index.jsx",
+    "pages/_app.jsx"
+  ],
   "exclude": ["node_modules"]
 }

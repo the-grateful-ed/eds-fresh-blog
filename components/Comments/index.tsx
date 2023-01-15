@@ -3,19 +3,12 @@ import Head from "next/head";
 import { createClient } from "@supabase/supabase-js";
 import { ChangeEvent, FormEvent, useState } from "react";
 import useSWR, { mutate } from "swr";
-import {
-  BsFillXCircleFill,
-  BsFillCheckCircleFill,
-  BsReplyFill,
-  BsPencilFill,
-  BsTrashFill,
-} from "react-icons/bs";
+import { BsFillXCircleFill, BsFillCheckCircleFill, BsReplyFill, BsPencilFill, BsTrashFill } from "react-icons/bs";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL + "";
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY + "";
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
-
+createClient(supabaseUrl, "ANON_KEY_FROM_SUPABASE");
 interface CommentParams {
   id: string;
   created_at: string;
@@ -30,8 +23,7 @@ interface EditCommentParams {
   payload: string;
 }
 
-const fetcher = (url: string) =>
-  fetch(url, { method: "GET" }).then((res) => res.json());
+const fetcher = (url: string) => fetch(url, { method: "GET" }).then((res) => res.json());
 
 const addCommentRequest = (url: string, data: any) =>
   fetch(url, {
@@ -48,14 +40,10 @@ const editCommentRequest = (url: string, data: any) =>
   }).then((res) => res.json());
 
 const deleteCommentRequest = (url: string, id: string) =>
-  fetch(`${url}?comment_id=${id}`, { method: "DELETE" }).then((res) =>
-    res.json()
-  );
+  fetch(`${url}?comment_id=${id}`, { method: "DELETE" }).then((res) => res.json());
 
 const Home: NextPage = () => {
-  const { data: commentList, error: commentListError } = useSWR<
-    CommentParams[]
-  >("/api/comments", fetcher);
+  const { data: commentList, error: commentListError } = useSWR<CommentParams[]>("/api/comments", fetcher);
   const [comment, setComment] = useState<string>("");
   const [editComment, setEditComment] = useState<EditCommentParams>({
     id: "",
@@ -111,7 +99,7 @@ const Home: NextPage = () => {
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newComment = {
-      username: "hoonwee@email.com",
+      username: "edndacomputer@riseup.net",
       payload: comment,
       reply_of: replyOf,
     };
@@ -139,24 +127,17 @@ const Home: NextPage = () => {
       <div className="flex justify-center pt-36">
         <div className="min-w-[600px]">
           <h1 className="text-4xl font-bold ">Comments</h1>
-          <form
-            onSubmit={onSubmit}
-            className="mt-8 flex gap-8"
-          >
+          <form onSubmit={onSubmit} className="mt-8 flex gap-8">
             <div className="w-full">
               {replyOf && (
                 <div className="my-2 flex items-center justify-start gap-4">
                   <div className="flex items-center justify-start gap-2">
                     <BsReplyFill className="w-4 rotate-180 text-gray-600" />
                     <p className="text-sm font-extralight italic text-gray-600">
-                      {commentList?.find((comment) => comment.id === replyOf)
-                        ?.payload ?? ""}
+                      {commentList?.find((comment) => comment.id === replyOf)?.payload ?? ""}
                     </p>
                   </div>
-                  <button
-                    onClick={() => setReplyOf(null)}
-                    title="Cancel"
-                  >
+                  <button onClick={() => setReplyOf(null)} title="Cancel">
                     <BsFillXCircleFill className="w-4 text-gray-600" />
                   </button>
                 </div>
@@ -169,10 +150,7 @@ const Home: NextPage = () => {
                 className="w-full border-b p-2 outline-none focus:border-b-gray-700"
               />
             </div>
-            <button
-              type="submit"
-              className="rounded-lg bg-blue-500 px-4 py-2 text-white"
-            >
+            <button type="submit" className="rounded-lg bg-blue-500 px-4 py-2 text-white">
               Submit
             </button>
           </form>
@@ -184,25 +162,19 @@ const Home: NextPage = () => {
                 return +aDate - +bDate;
               })
               .map((comment) => (
-                <div
-                  key={comment.id}
-                  className="rounded-md border p-4"
-                >
+                <div key={comment.id} className="rounded-md border p-4">
                   {comment.reply_of && (
                     <div className="flex items-center justify-start gap-2">
                       <BsReplyFill className="w-3 rotate-180 text-gray-600" />
                       <p className="text-xs font-extralight italic text-gray-600">
-                        {commentList?.find((c) => c.id === comment.reply_of)
-                          ?.payload ?? ""}
+                        {commentList?.find((c) => c.id === comment.reply_of)?.payload ?? ""}
                       </p>
                     </div>
                   )}
                   <p className="mb-2 font-semibold">
                     {comment.username}
                     {comment.updated_at !== comment.created_at && (
-                      <span className="ml-4 text-sm font-extralight italic">
-                        edited
-                      </span>
+                      <span className="ml-4 text-sm font-extralight italic">edited</span>
                     )}
                   </p>
                   <div className="flex items-center justify-between gap-2">
@@ -227,19 +199,11 @@ const Home: NextPage = () => {
                           >
                             <BsFillCheckCircleFill
                               className={`${
-                                editComment.payload === comment.payload
-                                  ? `text-gray-300`
-                                  : `text-blue-500`
+                                editComment.payload === comment.payload ? `text-gray-300` : `text-blue-500`
                               } w-6`}
                             />
                           </button>
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setEditComment({ id: "", payload: "" })
-                            }
-                            title="Cancel"
-                          >
+                          <button type="button" onClick={() => setEditComment({ id: "", payload: "" })} title="Cancel">
                             <BsFillXCircleFill className="w-6 text-gray-600" />
                           </button>
                         </>
@@ -256,16 +220,10 @@ const Home: NextPage = () => {
                           >
                             <BsPencilFill className="w-6" />
                           </button>
-                          <button
-                            onClick={() => confirmDelete(comment.id)}
-                            title="Delete comment"
-                          >
+                          <button onClick={() => confirmDelete(comment.id)} title="Delete comment">
                             <BsTrashFill className="w-6" />
                           </button>
-                          <button
-                            onClick={() => setReplyOf(comment.id)}
-                            title="Reply to comment"
-                          >
+                          <button onClick={() => setReplyOf(comment.id)} title="Reply to comment">
                             <BsReplyFill className="w-6 rotate-180" />
                           </button>
                         </>
