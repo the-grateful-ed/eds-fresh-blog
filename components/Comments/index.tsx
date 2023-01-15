@@ -5,10 +5,11 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import useSWR, { mutate } from "swr";
 import { BsFillXCircleFill, BsFillCheckCircleFill, BsReplyFill, BsPencilFill, BsTrashFill } from "react-icons/bs";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL + "";
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY + "";
+const supabaseUrl = "https://ypyqnkyuhjpoanueqgtx.supabase.co";
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
 
-createClient(supabaseUrl, "ANON_KEY_FROM_SUPABASE");
+export const supabase = createClient(supabaseUrl, supabaseKey);
+
 interface CommentParams {
   id: string;
   created_at: string;
