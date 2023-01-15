@@ -1,7 +1,7 @@
 import { FaEnvelope } from "react-icons/fa";
 
-import Divider from "./atoms/Divider";
-import Button from "./atoms/Button";
+import Divider from "../atoms/Divider";
+import Button from "../atoms/Button";
 
 export default function NewsLetter() {
   return (

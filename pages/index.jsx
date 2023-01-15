@@ -2,11 +2,11 @@ import Head from "next/head";
 import ArticleCard from "./blog/ArticleCard";
 import { allArticles } from "contentlayer/generated";
 import { select } from "../utils/select";
-import Hero from "../components/Hero";
-import NewsLetter from "../components/NewsLetter";
+import Hero from "../components/molecules/Hero";
+import NewsLetter from "../components/molecules/NewsLetter";
 import Divider from "components/atoms/Divider";
 import Button from "../components/atoms/Button";
-
+import Comments from "../components/Comments/index"
 export default function Home({ articles }) {
   return (
     <div className="bg-white ">
@@ -57,6 +57,7 @@ export default function Home({ articles }) {
             </div>
           )}
         </div>
+        <Comments />
       </main>
       <NewsLetter />
     </div>

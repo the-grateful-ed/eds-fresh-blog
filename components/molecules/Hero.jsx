@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./atoms/Button";
+import Button from "../atoms/Button";
 import { BsDiscord, BsTwitter, BsLinkedin, BsGithub } from "react-icons/bs";
 
 const Hero = () => {

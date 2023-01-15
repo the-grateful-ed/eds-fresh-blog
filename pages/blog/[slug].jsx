@@ -1,6 +1,6 @@
 import { allArticles } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
-import { SingleArticle } from "../../components/SingleArticle";
+import { SingleArticle } from "../../components/molecules/SingleArticle";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Comments from "../../components/Comments";
 
