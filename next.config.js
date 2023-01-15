@@ -1,5 +1,4 @@
 const { withContentlayer } = require("next-contentlayer");
-const dotenv = require("dotenv");
 
 const nextConfig = {
   reactStrictMode: true,
