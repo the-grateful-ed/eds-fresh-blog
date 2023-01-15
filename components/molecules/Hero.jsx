@@ -11,24 +11,17 @@ const Hero = () => {
             <div className="sm:text-center lg:py-12 lg:text-left xl:py-24">
               <h1 className="mx-auto mb-4 max-w-lg  text-justify text-4xl font-extrabold leading-none tracking-tight text-white md:max-w-none ">
                 Watch me build the future of the internet,
-                <span className="text-6xl text-blue-200"> I am ed, </span> check
-                out what I am up to
+                <span className="text-6xl text-blue-200"> I am ed, </span> check out what I am up to
                 <span className="text-2xl">
-                  and take a peek into the genus mind of a web 3 / blockchain /
-                  computer developer!
+                  and take a peek into the genus mind of a web 3 / blockchain / computer developer!
                 </span>
               </h1>
               <p className="text-justify text-lg font-normal text-gray-200 lg:text-xl">
-                So, this is my personal place on the internet where I can show
-                off the latest and greatest things I am doing. I will be a fun
-                ride, I will gaurentee that right now. Stick around, check me
-                out and enjoy!!
+                So, this is my personal place on the internet where I can show off the latest and greatest things I am
+                doing. I will be a fun ride, I will gaurentee that right now. Stick around, check me out and enjoy!!
               </p>
               <div className="flex w-full flex-col gap-2.5 pt-2 sm:flex-row sm:justify-center lg:justify-start">
-                <Button
-                  color="primary"
-                  className="w-full border-2 border-gray-200"
-                >
+                <Button color="primary" className="w-full border-2 border-gray-200">
                   Whats New
                 </Button>
                 <Button color="primary">Contact!</Button>
@@ -36,14 +29,12 @@ const Hero = () => {
             </div>
 
             <div className="mt-8 flex items-center justify-center gap-4 sm:mt-16 lg:justify-start">
-              <span className="text-2xl font-semibold uppercase tracking-widest text-gray-50 sm:text-base">
-                Social
-              </span>
+              <span className="text-2xl font-semibold uppercase tracking-widest text-gray-50 sm:text-base">Social</span>
               <span className="h-px w-12 bg-gray-50"></span>
 
               <div className="flex items-center gap-4">
                 <a
-                  href="#"
+                  href="discordapp.com/users/1009335831632297984"
                   target="_blank"
                   className="hover:white hover:white text-2xl text-gray-50 transition duration-100"
                 >

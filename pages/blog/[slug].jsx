@@ -2,24 +2,16 @@ import { allArticles } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
 import { SingleArticle } from "../../components/molecules/SingleArticle";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import Comments from "../../components/Comments";
+import Comments from "./comments";
 
 const SinglePost = ({ article }) => {
   const MDXContent = useMDXComponent(article.body.code);
 
   return (
     <>
-      <NextSeo
-        title={article.title}
-        description={article.seoDescription}
-      />
+      <NextSeo title={article.title} description={article.seoDescription} />
 
-      <SingleArticle
-        image={article.image}
-        title={article.title}
-        category={article.category}
-        author={article.author}
-      >
+      <SingleArticle image={article.image} title={article.title} category={article.category} author={article.author}>
         <MDXContent />
       </SingleArticle>
       <Comments />

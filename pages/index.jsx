@@ -6,52 +6,36 @@ import Hero from "../components/molecules/Hero";
 import NewsLetter from "../components/molecules/NewsLetter";
 import Divider from "components/atoms/Divider";
 import Button from "../components/atoms/Button";
-import Comments from "../components/Comments/index"
+import Comments from "./blog/comments";
 export default function Home({ articles }) {
   return (
     <div className="bg-white ">
       <Head>
         <title>edndacomputer | Welcome!</title>
-        <link
-          rel="icon"
-          href="/favicon.ico"
-        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
       <main className="bg-gradient-to-b from-blue-500 via-blue-500 to-white py-12">
         <div className="container mx-auto max-w-6xl space-y-6 p-6 sm:space-y-12">
           <Divider>Blog</Divider>
           <div className="grid grid-cols-1 justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {articles.map(
-              ({
-                title,
-                description,
-                slug,
-                image,
-                category,
-                publishedAt,
-                readingTime,
-              }) => (
-                <ArticleCard
-                  key={slug}
-                  title={title}
-                  description={description}
-                  slug={slug}
-                  image={image}
-                  category={category}
-                  dateTime={publishedAt}
-                  date={publishedAt}
-                  readingTime={readingTime.text}
-                />
-              )
-            )}
+            {articles.map(({ title, description, slug, image, category, publishedAt, readingTime }) => (
+              <ArticleCard
+                key={slug}
+                title={title}
+                description={description}
+                slug={slug}
+                image={image}
+                category={category}
+                dateTime={publishedAt}
+                date={publishedAt}
+                readingTime={readingTime.text}
+              />
+            ))}
           </div>
           {articles.length > 3 && (
             <div className="mt-4 flex justify-center">
-              <Button
-                href="/posts"
-                color="primary"
-              >
+              <Button href="/posts" color="primary">
                 More Posts
               </Button>
             </div>
@@ -67,21 +51,9 @@ export default function Home({ articles }) {
 export function getStaticProps() {
   const articles = allArticles
     .map((article) =>
-      select(article, [
-        "slug",
-        "title",
-        "description",
-        "publishedAt",
-        "readingTime",
-        "author",
-        "category",
-        "image",
-      ])
+      select(article, ["slug", "title", "description", "publishedAt", "readingTime", "author", "category", "image"])
     )
-    .sort(
-      (a, b) =>
-        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
-    );
+    .sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)));
 
   return { props: { articles } };
 }
