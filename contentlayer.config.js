@@ -52,7 +52,17 @@ const contentLayerConfig = makeSource({
   contentDirPath: 'data',
   documentTypes: [Article],
 
+<<<<<<< HEAD
   mdx: { remarkPlugins: [[remarkCodeHike, { theme }]] },
 })
+=======
+  mdx: {
+    remarkPlugins: [
+      [remarkCodeHike, { theme, showCopyButton: true, staticMediaQuery: "not screen, (max-width: 768px)" }],
+      [remarkGfm, { gfm: true, tables: true, breaks: true, footnotes: true }],
+    ],
+  },
+});
+>>>>>>> e1091aa (contentlayer update)
 
 export default contentLayerConfig
