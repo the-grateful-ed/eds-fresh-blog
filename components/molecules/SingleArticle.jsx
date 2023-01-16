@@ -23,13 +23,22 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
         />
         <hr />
         <br />
+<<<<<<< HEAD
         <div className="flex items-center">
           <img src={author.image} width={50} height={50} alt="blog" />
+=======
+        <div className="flex items-center space-x-2">
+          <Image src={author.image} width={50} height={50} alt="blog" />
+>>>>>>> 9b3840b (✨ feat: next.congif.js update)
 
-          <div>
+          <div className="">
             <strong>{author.name}</strong>
             <br />
+<<<<<<< HEAD
             <span>Digital Genius</span>
+=======
+            <span>Technical Genius</span>
+>>>>>>> 9b3840b (✨ feat: next.congif.js update)
           </div>
         </div>
         <article className="prose-md prose prose-blue mx-auto py-24 text-gray-500 lg:prose-lg">

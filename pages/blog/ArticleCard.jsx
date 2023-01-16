@@ -14,7 +14,7 @@ export default function ArticleCard({
   return (
     <div className="flex flex-col rounded-xl bg-gray-50">
       <CardImageWraper>
-        <img
+        <Image
           src={image}
           alt="image"
           width={1200}
