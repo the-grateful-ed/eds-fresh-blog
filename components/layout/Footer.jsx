@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
 const Footer = () => {
   return (
@@ -35,14 +35,17 @@ const Footer = () => {
       </div>
       <hr className="my-6 border-gray-100 sm:mx-auto lg:my-8" />
       <span className="block text-sm text-gray-50 sm:text-center">
-        © 2023{" "}
-        <a href="http://edndacomputer.netlify.app/" className="hover:text-purple-500">
+        © 2023{' '}
+        <a
+          href="http://edndacomputer.netlify.app/"
+          className="hover:text-purple-500"
+        >
           edndacomputer™
         </a>
         . All Rights Reserved.
       </span>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

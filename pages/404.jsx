@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 export default function Custom404() {
   return (
@@ -59,5 +59,5 @@ export default function Custom404() {
         </footer>
       </div>
     </>
-  );
+  )
 }

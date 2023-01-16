@@ -1,7 +1,7 @@
-import { FiArrowRight } from "react-icons/fi";
-import Link from "next/link";
-import { RxDotFilled } from "react-icons/rx";
-import { CgCalendarDates, CgReadme } from "react-icons/cg";
+import { FiArrowRight } from 'react-icons/fi'
+import Link from 'next/link'
+import { RxDotFilled } from 'react-icons/rx'
+import { CgCalendarDates, CgReadme } from 'react-icons/cg'
 export default function ArticleCard({
   title,
   description,
@@ -12,7 +12,6 @@ export default function ArticleCard({
   readingTime,
 }) {
   return (
-
     <div className="flex flex-col rounded-xl bg-gray-50">
       <CardImageWraper>
         <img
@@ -49,7 +48,7 @@ export default function ArticleCard({
         </CardLink>
       </CardLinkWraper>
     </div>
-  );
+  )
 }
 
 const style = {
@@ -63,55 +62,52 @@ const style = {
   statsWrapper: `flex justify-between py-0.5 px-2`,
   cardLinkWrapper: `m-2 mb-4 flex justify-end`,
   cardImageWrapper: `aspect-w-3 aspect-h-2 overflow-hidden rounded-t-lg group-hover:opacity-75 lg:aspect-w-2 lg:aspect-h-1`,
-};
+}
 
 const inlineStyle = {
-  boxShadow: "0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%)",
-};
+  boxShadow: '0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%)',
+}
 
 function Card({ children }) {
   return (
-    <div
-      className={style.card}
-      style={inlineStyle}
-    >
+    <div className={style.card} style={inlineStyle}>
       {children}
     </div>
-  );
+  )
 }
 
 function CardBody({ children }) {
-  return <div className={style.cardBody}>{children}</div>;
+  return <div className={style.cardBody}>{children}</div>
 }
 
 function CardTitle({ children }) {
-  return <div className={style.cardTitle}>{children}</div>;
+  return <div className={style.cardTitle}>{children}</div>
 }
 
 function CardText({ children }) {
-  return <div className={style.cardText}>{children}</div>;
+  return <div className={style.cardText}>{children}</div>
 }
 
 function StatsWrapper({ children }) {
-  return <div className={style.statsWrapper}>{children}</div>;
+  return <div className={style.statsWrapper}>{children}</div>
 }
 
 function CardLink({ children }) {
-  return <div className={style.cardLink}>{children}</div>;
+  return <div className={style.cardLink}>{children}</div>
 }
 
 function CardStats({ children }) {
-  return <div className={style.cardStats}>{children}</div>;
+  return <div className={style.cardStats}>{children}</div>
 }
 
 function CardCategory({ children }) {
-  return <div className={style.cardCategory}>{children}</div>;
+  return <div className={style.cardCategory}>{children}</div>
 }
 
 function CardLinkWraper({ children }) {
-  return <div className={style.cardLinkWrapper}>{children}</div>;
+  return <div className={style.cardLinkWrapper}>{children}</div>
 }
 
 function CardImageWraper({ children }) {
-  return <div className={style.cardImageWrapper}>{children}</div>;
+  return <div className={style.cardImageWrapper}>{children}</div>
 }

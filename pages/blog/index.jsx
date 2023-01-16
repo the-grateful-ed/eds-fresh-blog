@@ -1,11 +1,11 @@
-import React from "react";
-import ArticleCard from "./ArticleCard";
-import { allArticles } from "contentlayer/generated";
-import Divider from "../../components/atoms/Divider";
+import React from 'react'
+import ArticleCard from './ArticleCard'
+import { allArticles } from 'contentlayer/generated'
+import Divider from '../../components/atoms/Divider'
 
 const BlogIndex = () => {
-  const firstArticle = allArticles[0];
-  const otherArticles = allArticles.slice(1);
+  const firstArticle = allArticles[0]
+  const otherArticles = allArticles.slice(1)
 
   return (
     <section className="rounded-t-xl bg-blue-500 text-gray-800">
@@ -25,33 +25,48 @@ const BlogIndex = () => {
             <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline sm:text-4xl">
               {firstArticle.title}
             </h3>
-            <span className="text-xs text-gray-600">{firstArticle.publishedAt}</span>
+            <span className="text-xs text-gray-600">
+              {firstArticle.publishedAt}
+            </span>
             <p>{firstArticle.description}</p>
           </div>
         </a>
         <div className="grid grid-cols-1 justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {otherArticles.map(({ title, description, slug, image, category, publishedAt, readingTime }) => (
-            <ArticleCard
-              key={slug}
-              title={title}
-              description={description}
-              slug={slug}
-              image={image}
-              category={category}
-              dateTime={publishedAt}
-              date={publishedAt}
-              readingTime={readingTime.text}
-            />
-          ))}
+          {otherArticles.map(
+            ({
+              title,
+              description,
+              slug,
+              image,
+              category,
+              publishedAt,
+              readingTime,
+            }) => (
+              <ArticleCard
+                key={slug}
+                title={title}
+                description={description}
+                slug={slug}
+                image={image}
+                category={category}
+                dateTime={publishedAt}
+                date={publishedAt}
+                readingTime={readingTime.text}
+              />
+            )
+          )}
         </div>
         <div className="flex justify-center">
-          <button type="button" className="rounded-md bg-gray-50 px-6 py-3 text-sm text-gray-600 hover:underline">
+          <button
+            type="button"
+            className="rounded-md bg-gray-50 px-6 py-3 text-sm text-gray-600 hover:underline"
+          >
             Load more posts...
           </button>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default BlogIndex;
+export default BlogIndex

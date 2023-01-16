@@ -1,6 +1,6 @@
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import { Head, MetaProps } from "./Head";
+import Footer from './Footer'
+import Navbar from './Navbar'
+import { Head, MetaProps } from './Head'
 
 function Layout({ children, customMeta }) {
   return (
@@ -12,7 +12,7 @@ function Layout({ children, customMeta }) {
         <Footer />
       </div>
     </>
-  );
+  )
 }
 
-export default Layout;
+export default Layout
