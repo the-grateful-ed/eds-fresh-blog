@@ -23,6 +23,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
     ".contentlayer/generated",
     "contentlayer.config.js",
     "pages/index.jsx",

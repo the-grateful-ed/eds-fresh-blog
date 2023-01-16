@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Comments from "../../pages/blog/comments";
+import Image from 'next/image'
+import Comments from '../../pages/blog/comments'
 
 export const SingleArticle = ({ author, image, category, title, children }) => {
   return (
@@ -14,7 +14,7 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
           {title}
         </h1>
         <br />
-        <Image
+        <img
           className="w-full object-cover object-center md:h-36 lg:h-48"
           src={image}
           width={720}
@@ -24,17 +24,18 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
         <hr />
         <br />
         <div className="flex items-center">
-          <Image src={author.image} width={50} height={50} alt="blog" />
+          <img src={author.image} width={50} height={50} alt="blog" />
 
           <div>
             <strong>{author.name}</strong>
             <br />
-            <span>Technical advisor</span>
+            <span>Digital Genius</span>
           </div>
         </div>
-        <article className="prose-md prose prose-blue mx-auto py-24 text-gray-500 lg:prose-lg">{children}</article>
+        <article className="prose-md prose prose-blue mx-auto py-24 text-gray-500 lg:prose-lg">
+          {children}
+        </article>
       </div>
-      <Comments />
     </div>
-  );
-};
+  )
+}
