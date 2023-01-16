@@ -1,3 +1,5 @@
+import Button from "../../components/atoms/Button";
+
 export default function AboutPage() {
   return (
     <div className="relative overflow-hidden bg-white py-16">
@@ -71,22 +73,25 @@ export default function AboutPage() {
       <div className="relative px-1 sm:px-3 lg:px-2">
         <div className="mx-auto max-w-none text-lg">
           <h1>
-            <span className="block text-center text-lg font-semibold text-green-600">Introducing</span>
+            <span className="block text-center text-lg font-semibold text-blue-600">Introducing</span>
             <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
               JavaScript for Beginners
             </span>
           </h1>
+          <Button color="primary" href="/viewer">
+            My Resume
+          </Button>
           <p className="mt-8 text-xl leading-8 text-gray-500">
             Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget
             aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend
             egestas fringilla sapien.
           </p>
         </div>
-        <div className="prose prose-lg prose-green max-w-none mx-auto mt-6 text-gray-500">
+        <div className="prose prose-lg prose-blue mx-auto mt-6 max-w-none text-gray-500">
           <p>
             Faucibus commodo massa rhoncus, volutpat. <strong>Dignissim</strong> sed <strong>eget risus enim</strong>.
             Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra
-            tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim.{' '}
+            tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim.{" "}
             <a href="#">Mattis mauris semper</a> sed amet vitae sed turpis id.
           </p>
           <ul role="list">
@@ -140,5 +145,5 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
