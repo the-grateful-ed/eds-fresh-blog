@@ -13,7 +13,7 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
           {title}
         </h1>
         <br />
-        <img
+        <Image
           className="w-full object-cover object-center md:h-36 lg:h-48"
           src={image}
           width={720}
@@ -22,13 +22,13 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
         />
         <hr />
         <br />
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center">
           <Image src={author.image} width={50} height={50} alt="blog" />
 
-          <div className="">
+          <div>
             <strong>{author.name}</strong>
             <br />
-            <span>Digital Genius</span>
+            <span>Technical advisor</span>
           </div>
         </div>
         <article className="prose-md prose prose-blue mx-auto py-24 text-gray-500 lg:prose-lg">

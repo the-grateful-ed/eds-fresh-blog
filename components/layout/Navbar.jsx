@@ -1,14 +1,14 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { NavLink } from './NavMenu'
 import { FaBars } from 'react-icons/fa'
+import { NavLink } from './NavMenu'
 
 const pages = [
-  { name: 'Home', href: '/' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Work', href: '/work' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { id: 1, name: 'Home', href: '/' },
+  { id: 2, name: 'Blog', href: '/blog' },
+  { id: 3, name: 'Work', href: '/work' },
+  { id: 4, name: 'About', href: '/about' },
+  { id: 5, name: 'Contact', href: '/contact' },
 ]
 
 export const Navbar = () => {
@@ -38,7 +38,7 @@ export const Navbar = () => {
           <ul className="">
             <nav className="rounded-lg0 mt-4 flex flex-col p-4 sm:flex-row md:mt-0 md:space-x-1 md:border-0 md:bg-white">
               {pages.map((page) => (
-                <NavLink href={page.href} key={page.title}>
+                <NavLink href={page.href} key={page.id}>
                   {page.name}
                 </NavLink>
               ))}

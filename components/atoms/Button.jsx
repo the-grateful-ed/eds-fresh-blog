@@ -1,35 +1,14 @@
-import React from 'react'
-import { forwardRef } from 'react'
-import Link from 'next/link'
+import { forwardRef } from "react";
 
-const Button = forwardRef(
-  ({ color, className, children, href, onClick, ...props }, ref) => {
-    return (
-      <>
-        {href ? (
-          <Link href={href}>
-            <button
-              ref={ref}
-              className={`${style.default} ${style.color[color]} ${className}`}
-              {...props}
-            >
-              {children}
-            </button>
-          </Link>
-        ) : (
-          <button
-            ref={ref}
-            className={`${style.default} ${style.color[color]} ${className}`}
-            onClick={onClick}
-            {...props}
-          >
-            {children}
-          </button>
-        )}
-      </>
-    )
-  }
-)
+const Button = forwardRef(({ color, className, children, ...props }, ref) => (
+  <button
+    ref={ref}
+    className={`${style.default} ${style.color[color]} ${className}`}
+    {...props}
+  >
+    {children}
+  </button>
+));
 
 const style = {
   default: `focus:outline-none text-center shadow-lg rounded-lg px-6 py-2 font-medium transition ease-in duration-200 focus:ring-4`,
@@ -42,6 +21,6 @@ const style = {
     warning: `bg-yellow-500 focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 focus:ring-offset-yellow-100`,
     indigo: `bg-indigo-900 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 focus:ring-offset-indigo-100`,
   },
-}
+};
 
-export default Button
+export default Button;

@@ -1,7 +1,10 @@
 function Divider({ children, ...props }) {
   return (
     <div className="relative py-4">
-      <div className="absolute inset-0 flex items-center" aria-hidden="true">
+      <div
+        className="absolute inset-0 flex items-center"
+        aria-hidden="true"
+      >
         <div className="mr-8 w-full border-t border-white" />
       </div>
       <div className="relative flex justify-start">
@@ -13,7 +16,7 @@ function Divider({ children, ...props }) {
         </span>
       </div>
     </div>
-  )
+  );
 }
 
-export default Divider
+export default Divider;
