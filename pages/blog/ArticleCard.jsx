@@ -2,6 +2,7 @@ import { FiArrowRight } from 'react-icons/fi'
 import Link from 'next/link'
 import { RxDotFilled } from 'react-icons/rx'
 import { CgCalendarDates, CgReadme } from 'react-icons/cg'
+import Image from 'next/image'
 export default function ArticleCard({
   title,
   description,
