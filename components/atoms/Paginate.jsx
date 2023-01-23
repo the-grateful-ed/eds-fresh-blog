@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 function Paginate({
   postsPerPage,
@@ -8,12 +8,12 @@ function Paginate({
   previousPage,
   nextPage,
 }) {
-  const pageNumbers = [];
+  const pageNumbers = []
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
+    pageNumbers.push(i)
   }
   if (currentPage === 0 || pageNumbers.length < 2) {
-    return null;
+    return null
   }
   return (
     <div className="pagination flex justify-center">
@@ -43,7 +43,7 @@ function Paginate({
         </li>
       </ul>
     </div>
-  );
+  )
 }
 
-export default Paginate;
+export default Paginate

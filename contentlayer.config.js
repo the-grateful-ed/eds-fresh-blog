@@ -6,7 +6,7 @@ import {
 import readingTime from 'reading-time'
 import { remarkCodeHike } from '@code-hike/mdx'
 import { createRequire } from 'module'
-import remarkGfm from "remark-gfm"
+import remarkGfm from 'remark-gfm'
 const require = createRequire(import.meta.url)
 const theme = require('shiki/themes/dark-plus.json')
 
@@ -55,10 +55,17 @@ const contentLayerConfig = makeSource({
 
   mdx: {
     remarkPlugins: [
-      [remarkCodeHike, { theme, showCopyButton: true, staticMediaQuery: "not screen, (max-width: 768px)" }],
+      [
+        remarkCodeHike,
+        {
+          theme,
+          showCopyButton: true,
+          staticMediaQuery: 'not screen, (max-width: 768px)',
+        },
+      ],
       [remarkGfm, { gfm: true, tables: true, breaks: true, footnotes: true }],
     ],
   },
-});
+})
 
 export default contentLayerConfig

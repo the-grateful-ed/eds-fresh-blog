@@ -1,7 +1,7 @@
-import { FaEnvelope } from "react-icons/fa";
+import { FaEnvelope } from 'react-icons/fa'
 
-import Divider from "../atoms/Divider";
-import Button from "../atoms/Button";
+import Divider from '../atoms/Divider'
+import Button from '../atoms/Button'
 
 export default function NewsLetter() {
   return (
@@ -20,10 +20,7 @@ export default function NewsLetter() {
           </div>
           <div className="mt-12 sm:w-full sm:max-w-md lg:mt-0 lg:ml-8 lg:flex-1">
             <form className="sm:flex">
-              <label
-                htmlFor="email-address"
-                className="sr-only"
-              >
+              <label htmlFor="email-address" className="sr-only">
                 white Email address
               </label>
               <input
@@ -44,11 +41,8 @@ export default function NewsLetter() {
               </Button>
             </form>
             <p className="mt-3 text-sm text-gray-600">
-              We care about the protection of your data. Read our{" "}
-              <a
-                href="#"
-                className="font-medium text-gray-800 underline"
-              >
+              We care about the protection of your data. Read our{' '}
+              <a href="#" className="font-medium text-gray-800 underline">
                 Privacy Policy.
               </a>
             </p>
@@ -56,5 +50,5 @@ export default function NewsLetter() {
         </div>
       </div>
     </div>
-  );
+  )
 }

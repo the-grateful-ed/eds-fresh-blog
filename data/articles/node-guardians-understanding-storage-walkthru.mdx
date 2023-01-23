@@ -1,8 +1,12 @@
 ---
 title: Node Guardians - Understanding Storage
 publishedAt: '2023-01-16'
-description: Walkthru the Understanding Storage Campaign of Node Guardians to expand your Solidity knowledge.
-seoDescription: Walkthru the Understanding Storage Campaign of Node Guardians to expand your Solidity knowledge.
+description:
+  Walkthru the Understanding Storage Campaign of Node Guardians to expand your
+  Solidity knowledge.
+seoDescription:
+  Walkthru the Understanding Storage Campaign of Node Guardians to expand your
+  Solidity knowledge.
 category: 'Solidity'
 author: { name: 'edndacomputer', image: '/images/avatar.png' }
 image: '/images/node-guardians-storage-cover.png'
@@ -10,11 +14,20 @@ image: '/images/node-guardians-storage-cover.png'
 
 # Node Guardians1
 
-Node Guardians is a decentralized application that allows users to become a "node guardian" and earn rewards for participating in the Ethereum network's consensus process. One of the unique features of Node Guardians is the different campaigns that users can play through, each of which teaches different elements of Ethereum development and Solidity programming.
+Node Guardians is a decentralized application that allows users to become a
+"node guardian" and earn rewards for participating in the Ethereum network's
+consensus process. One of the unique features of Node Guardians is the different
+campaigns that users can play through, each of which teaches different elements
+of Ethereum development and Solidity programming.
 
 ## Understanding Storage
 
-Today, we will be walking through a part of the "Understanding Storage" campaign for the Solidity branch. In this campaign, players will learn about storage variables and data structures in Solidity, which are essential for creating and managing smart contracts. This particular challenge will focus on understanding the differences between storage, memory, and the stack and how to use them efficiently in smart contracts.
+Today, we will be walking through a part of the "Understanding Storage" campaign
+for the Solidity branch. In this campaign, players will learn about storage
+variables and data structures in Solidity, which are essential for creating and
+managing smart contracts. This particular challenge will focus on understanding
+the differences between storage, memory, and the stack and how to use them
+efficiently in smart contracts.
 
 In this walk-through, we will be covering the following topics:
 
@@ -22,21 +35,32 @@ In this walk-through, we will be covering the following topics:
 - Using storage variables and data structures in Solidity
 - Best practices for managing storage in smart contracts
 
-By the end of this walk-through, you will have a solid understanding of how to efficiently use storage in your own smart contract projects and how to manage storage to optimize your smart contract's performance. So, let's get started!
+By the end of this walk-through, you will have a solid understanding of how to
+efficiently use storage in your own smart contract projects and how to manage
+storage to optimize your smart contract's performance. So, let's get started!
 
 ### Storage Variables [^1]
 
-Basically, we can barely understand that variables in a contract will be stored in storage as follows:
+Basically, we can barely understand that variables in a contract will be stored
+in storage as follows:
 
 - Storage only stores variables, not constant
 - Each slot can store up to 256 bits (32 bytes)
-- The variables in turn are in slot in the order of lower-order (ie from right to left).
-- If the size of the variable exceeds the remaining size of the slot, this variable will be passed to the new slot.
-- Struct creates a new slot, the struct elements are put into the slot in the same way as above.
-- Fixed size array creates a new slot, struct elements are put into the slot in the same way as above.
-- Dynamic size array creates a new slot, this slot only stores the length of the array, while the values in the array will be stored at other locations (we will talk more in detail later)
-- Mapping always creates a new slot to hold a place, the values ​​in the array will be stored in other locations, we will talk more in detail later.
-- String creates a new slot, this slot stores both data & data length, we will talk more in detail later.
+- The variables in turn are in slot in the order of lower-order (ie from right
+  to left).
+- If the size of the variable exceeds the remaining size of the slot, this
+  variable will be passed to the new slot.
+- Struct creates a new slot, the struct elements are put into the slot in the
+  same way as above.
+- Fixed size array creates a new slot, struct elements are put into the slot in
+  the same way as above.
+- Dynamic size array creates a new slot, this slot only stores the length of the
+  array, while the values in the array will be stored at other locations (we
+  will talk more in detail later)
+- Mapping always creates a new slot to hold a place, the values ​​in the array
+  will be stored in other locations, we will talk more in detail later.
+- String creates a new slot, this slot stores both data & data length, we will
+  talk more in detail later.
 
 <CH.Section>
 
@@ -66,4 +90,7 @@ Hello, [hover me](focus://1[5:16])
 
 </CH.Section>
 
-[^1]: Solidity storage in-depth. Hack to not be attacked! (2023, January 16). Retrieved January 16, 2023, from https://kubertu.com/blog/solidity-storage-in-depth/
+[^1]:
+    Solidity storage in-depth. Hack to not be attacked! (2023, January 16).
+    Retrieved January 16, 2023, from
+    https://kubertu.com/blog/solidity-storage-in-depth/

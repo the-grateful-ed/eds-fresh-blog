@@ -1,35 +1,77 @@
 ---
 title: Ethernaut Speed Run Level 1
 publishedAt: '2022-01-11'
-description: Lets Hack Ethereum Smart Contracts, Like a Boss we finesse the code and break it down to win the level in no time.
-seoDescription: Follow along as we hack Ethereum Contracts in the Open Zeppelin Game, Ethernaut
+description:
+  Lets Hack Ethereum Smart Contracts, Like a Boss we finesse the code and break
+  it down to win the level in no time.
+seoDescription:
+  Follow along as we hack Ethereum Contracts in the Open Zeppelin Game,
+  Ethernaut
 category: 'Soldity Security / Hacking'
 author: { name: 'edndacomputer', image: '/images/avatar.png' }
 image: '/images/node-guardians-storage-cover.png'
 ---
 
-This is some text with a citation <Cite id='source1'/>.
+# Ethernaut CTF
+## Fallback (Level 1 Walkthru)
+### Introduction
 
-You can also add citations like this [^1].
+Ethernauts is a capture the flag (CTF) game created by OpenZeppelin that allows
+players to learn about smart contract security by hacking vulnerable contracts.
+In this blog post, we will walk through the first level of the game, which is
+called "Fallback".
 
-[^1]:
-    <Cite id="source2" />
+The goal of this level is to steal all the ether from the contract's fallback
+function, which is a function that is called when someone sends ether to a
+contract without specifying a specific function to call.
 
-<References
-  references={[
-    {
-      id: 'source1',
-      title: 'Solidity storage in-depth. Hack to not be attacked!',
-      author: [],
-      date: '2023, January 16',
-      url: 'https://kubertu.com/blog/solidity-storage-in-depth/',
-    },
-    {
-      id: 'source2',
-      title: 'Another source',
-      author: ['John Doe'],
-      date: '2022, December 12',
-      url: 'https://example.com/another-source',
-    },
-  ]}
-/>
+### Analysis
+
+<CH.Section>
+- Upon first inspection, we can see that the owner is [defined as msg.sender in the constructor.](focus://7,16)
+- There is a [mapping relating addresses to a uint](focus://6), the uint being a contribution amount.
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Fallback {
+
+  mapping(address => uint) public contributions;
+  address public owner;
+
+  constructor() {
+    owner = msg.sender;
+    contributions[msg.sender] = 1000 * (1 ether);
+  }
+
+  modifier onlyOwner {
+        require(
+            msg.sender == owner,
+            "caller is not the owner"
+        );
+        _;
+    }
+
+  function contribute() public payable {
+    require(msg.value < 0.001 ether);
+    contributions[msg.sender] += msg.value;
+    if(contributions[msg.sender] > contributions[owner]) {
+      owner = msg.sender;
+    }
+  }
+
+  function getContribution() public view returns (uint) {
+    return contributions[msg.sender];
+  }
+
+  function withdraw() public onlyOwner {
+    payable(owner).transfer(address(this).balance);
+  }
+
+  receive() external payable {
+    require(msg.value > 0 && contributions[msg.sender] > 0);
+    owner = msg.sender;
+  }
+}
+```
+</CH.Section>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import {Refrences} from "@pilvit/post-references"
 
 export const SingleArticle = ({ author, image, category, title, children }) => {
   return (
@@ -22,13 +23,13 @@ export const SingleArticle = ({ author, image, category, title, children }) => {
         />
         <hr />
         <br />
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
           <Image src={author.image} width={50} height={50} alt="blog" />
 
           <div>
             <strong>{author.name}</strong>
             <br />
-            <span>Technical advisor</span>
+            <span>Digital Genius</span>
           </div>
         </div>
         <article className="prose-md prose prose-blue mx-auto py-24 text-gray-500 lg:prose-lg">
