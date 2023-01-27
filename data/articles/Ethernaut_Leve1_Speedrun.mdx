@@ -29,7 +29,8 @@ contract without specifying a specific function to call.
 
 <CH.Section>
 - Upon first inspection, we can see that the owner is [defined as msg.sender in the constructor.](focus://7,16)
-- There is a [mapping relating addresses to a uint](focus://6), the uint being a contribution amount.
+- There is a [mapping relating addresses to a uint](focus://6), the uint being a contribution amount of the given user.
+- The msg.sender (i.e. deployer of contract/current owner) is [inserted to the mapping with 1000 ETH.](focus://11)
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;

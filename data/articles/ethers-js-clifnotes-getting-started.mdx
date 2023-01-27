@@ -1,0 +1,153 @@
+---
+title: Ethers.js CliffNotes - Getting Started
+publishedAt: '2022-01-26'
+description: In the first installation of Ethers.js ClifNotes we cover Getting Started
+seoDescription: A summary of the Getting Started section of the Ethers.js Documentation.
+category: 'Ethers.js'
+author:
+  {
+    name: 'edndacomputer',
+    image: 'avatar.png',
+  }
+image: 'ethers-logo.png'
+---
+
+# Ethers.js Clifnotes
+
+Ethers.js is a JavaScript library for interacting with the Ethereum blockchain. It is a collection of libraries for interacting with the Ethereum network, including libraries for signing transactions and interacting with smart contracts.
+
+## Getting Started:
+To start using Ethers.js, you will first need to install it via npm by running `npm install ethers`.
+ 
+ You can then import the library in your JavaScript code by using `import * as ethers from 'ethers'`.
+
+### Creating a Wallet:
+### 
+   You can create a new wallet using the **ethers.Wallet** class. The class takes a private key as its argument.
+````javascript
+    const privateKey = '0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef';
+    const wallet = new ethers.Wallet(privateKey);
+    console.log(wallet.address); // '0x742d35Cc6634C0532925a3b844Bc454e4438f44e'
+````
+
+   You can also generate a new random wallet using the **ethers.Wallet.createRandom()** method.
+
+````javascript
+    const wallet = ethers.Wallet.createRandom();
+    console.log(wallet.privateKey); // '0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef'
+    console.log(wallet.address); // '0x742d35Cc6634C0532925a3b844Bc454e4438f44e'
+````
+
+   You can also create a wallet from mnemonics
+
+````javascript
+  const mnemonic = "tag volcano eight thank tide danger coast health above argue embrace heavy";
+    const path = "m/44'/60'/0'/0/0";
+    const wallet = ethers.Wallet.fromMnemonic(mnemonic,path);
+    console.log(wallet.address); // '0x742d35Cc6634C0532925a3b844Bc454e4438f44e'`
+````
+
+You can also create a wallet from HD node
+````javascript
+    const hdNode = ethers.utils.HDNode.fromMnemonic("tag volcano eight thank tide danger coast health above argue embrace heavy")
+    const path = "m/44'/60'/0'/0/0";
+    const wallet = hdNode.derivePath(path);
+    console.log(wallet.address); // '0x742d35Cc6634C0532925a3b844Bc454e4438f44e'
+````
+
+### Interacting with a Contract: ###
+
+   Ethers.js provides a **ethers.Contract** class for interacting with smart contracts on the Ethereum blockchain.
+   
+ To interact with a contract, you need to create an instance of the **ethers.Contract** class by passing it the contract's address and its ABI (Application Binary Interface).
+ 
+ For example, let's assume we have a smart contract with the following ABI and address:
+````javascript
+    const abi = [
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "get",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "value",
+                "type": "uint256"
+            }
+        ],
+        "name": "set",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+        ];
+    const contractAddress = '0x742d35Cc6634C0532925a3b844Bc454e4438f44e';
+````
+
+
+To create an instance of the **ethers.Contract** class, we can use the following code:
+````javascript
+const provider = new ethers.providers.JsonRpcProvider(); 
+const contract = new ethers.Contract(contractAddress, abi, provider);
+````
+
+For example, to call the `get()` function of our example contract, you can use the following code:
+
+````javascript
+contract.functions.get().then(result => {
+console.log(result); // '42'
+});
+````
+To call the set() function and set a new value in the contract, you can use the following code:
+
+````javascript
+contract.set(42).then(transaction => {
+    console.log(transaction.hash);
+});
+````
+
+### Signing Transactions: ###
+ Ethers.js provides a ethers.Signer class for signing transactions.
+ 
+ To sign a transaction, you create an instance of the **ethers.Signer** class and pass it the private key of the account you want to sign the transaction with.  Then, you can use the signer to build and sign transactions.
+
+ To create an instance of the **ethers.Signer** class, you can use the following code:
+
+ ````javascript
+ const signer = new ethers.Signer(provider);
+ ````
+
+ You can also create an instance of the ethers.Signer class with a private key:
+ ````javascript
+const privateKey = '0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef';
+const signer = new ethers.Signer(privateKey, provider);
+````
+
+To sign a transaction, you can use the signer.sendTransaction() method. For example, to sign and send a transaction to call the set() function with a value of 42, you can use the following code:
+
+````javascript
+signer.sendTransaction({
+    to: contractAddress,
+    value: 0,
+    data: contract.interface.functions.set(42).data
+}).then(transaction => {
+    console.log(transaction.hash);
+});
+````
+
+### Additional features: ###
+Ethers.js also provides additional features such as events, filters and utils for convenience.  It also have additional functionality for working with ENS and IPFS. We will be going over these and many more advanced topics as we continue further in this series.
+
+
